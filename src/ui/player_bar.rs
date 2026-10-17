@@ -1058,6 +1058,7 @@ mod player_bar_waveform_tests {
                 media_controls: false,
                 restore_sign_in: false,
                 tray: false,
+                ..Default::default()
             },
         );
         app.player_bar_scope = vec![0.8, -0.5, 0.6];
