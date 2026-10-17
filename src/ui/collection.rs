@@ -436,6 +436,8 @@ pub struct Table<'a> {
     pub show_cover: bool,
     pub show_added: bool,
     pub show_added_by: bool,
+    /// Spotify's play counts, which only album pages show.
+    pub show_plays: bool,
     pub page: Page,
     pub loading: bool,
     pub error: Option<&'a str>,
@@ -667,6 +669,7 @@ fn table_contents(app: &mut App, ui: &mut egui::Ui, table: Table<'_>) {
             table.show_album,
             table.show_added,
             table.show_added_by,
+            table.show_plays,
             show_cover,
             sort,
         )
@@ -862,6 +865,7 @@ fn table_contents(app: &mut App, ui: &mut egui::Ui, table: Table<'_>) {
                 added_at: added_at.as_deref().filter(|_| table.show_added),
                 added_by: added_by.as_deref(),
                 show_added_by: table.show_added_by,
+                show_plays: table.show_plays,
                 compact: false,
                 thin,
                 shift,
@@ -1468,6 +1472,7 @@ pub fn top_songs(app: &mut App, ui: &mut egui::Ui) {
             show_cover: true,
             show_added: false,
             show_added_by: false,
+            show_plays: false,
             page: Page::TopSongs,
             loading: app.home.top_songs_loading,
             error: None,
@@ -1613,6 +1618,7 @@ pub fn playlist(app: &mut App, ui: &mut egui::Ui, id: &str) {
                             .is_some_and(|a| !a.starts_with("1970-01-01"))
                     }),
                     show_added_by: made_together,
+                    show_plays: false,
                     page: Page::Playlist(id.to_string()),
                     loading: page.items.loading,
                     error: page.items.error.as_deref(),
@@ -1732,6 +1738,8 @@ pub fn album(app: &mut App, ui: &mut egui::Ui, id: &str) {
                 );
                 return;
             }
+            app.request_play_counts(&album.uri);
+            let show_plays = app.has_play_counts(&album.uri);
             album_hero(app, ui, album, &page.tracks, preview.as_deref());
             let saved = app.is_saved(&album.uri).unwrap_or(false);
             let sort = app.table_sorts.get(&Page::Album(id.to_string())).copied();
@@ -1774,6 +1782,7 @@ pub fn album(app: &mut App, ui: &mut egui::Ui, id: &str) {
                     show_cover: false,
                     show_added: false,
                     show_added_by: false,
+                    show_plays,
                     page: Page::Album(id.to_string()),
                     loading: page.tracks.loading,
                     error: page.tracks.error.as_deref(),
@@ -2204,6 +2213,7 @@ pub fn liked(app: &mut App, ui: &mut egui::Ui) {
             show_cover: true,
             show_added: true,
             show_added_by: false,
+            show_plays: false,
             page: Page::LikedSongs,
             loading,
             error: error.as_deref(),
@@ -2649,6 +2659,7 @@ mod tests {
                             show_cover: false,
                             show_added: false,
                             show_added_by: false,
+                            show_plays: false,
                             page: Page::Playlist("retry".into()),
                             loading: false,
                             error: Some("Offline"),
@@ -2736,6 +2747,7 @@ mod tests {
                     show_cover: false,
                     show_added: false,
                     show_added_by: false,
+                    show_plays: false,
                     page: Page::Playlist("filtered".into()),
                     loading: false,
                     error: None,
@@ -3212,6 +3224,7 @@ mod tests {
                                 show_cover: true,
                                 show_added: false,
                                 show_added_by: false,
+                                show_plays: false,
                                 page: Page::Playlist("test".into()),
                                 loading: false,
                                 error: None,

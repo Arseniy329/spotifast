@@ -390,6 +390,16 @@ pub fn populate(app: &mut App) {
     app.artist_pages.insert("art0".into(), artist_page);
     app.saved.insert("spotify:artist:art0".into(), true);
 
+    // Play counts for the album's songs and the artist's popular ones.
+    for (index, track) in tracks.iter().take(12).enumerate() {
+        let plays = 1_348_772_019 / (index as u64 * 3 + 1) + index as u64 * 7_919;
+        app.play_counts.insert(track.uri.clone(), plays);
+    }
+    for uri in [album(0).uri, artist(0).uri] {
+        app.play_count_reads
+            .insert(uri, crate::app::PlayCountRead::Answered);
+    }
+
     // Show page.
     let mut show_page = ShowPage {
         show: Loadable::Loaded(show(0)),
@@ -3460,6 +3470,7 @@ mod tests {
                                 added_at: None,
                                 added_by: None,
                                 show_added_by: false,
+                                show_plays: false,
                                 compact: false,
                                 thin: false,
                                 shift: 0.0,
@@ -3565,6 +3576,7 @@ mod tests {
                                     added_at: None,
                                     added_by: None,
                                     show_added_by: false,
+                                    show_plays: false,
                                     compact: false,
                                     thin: false,
                                     shift: 0.0,
@@ -3685,6 +3697,7 @@ mod tests {
                                 added_at: None,
                                 added_by: None,
                                 show_added_by: false,
+                                show_plays: false,
                                 compact: false,
                                 thin: false,
                                 shift: 0.0,
@@ -4525,6 +4538,7 @@ mod tests {
                         added_at: Some("2026-01-01T00:00:00Z"),
                         added_by: None,
                         show_added_by: false,
+                        show_plays: false,
                         compact: false,
                         thin: true,
                         shift: 0.0,
@@ -8939,6 +8953,7 @@ mod tests {
                                 show_cover: true,
                                 show_added: false,
                                 show_added_by: false,
+                                show_plays: false,
                                 page: Page::Playlist("pl1".into()),
                                 loading: false,
                                 error: None,
