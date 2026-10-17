@@ -127,6 +127,7 @@ fn visualizer(app: &mut App, ui: &egui::Ui, rect: Rect, now: Option<&NowPlaying>
     use crate::settings::PlayerBarVis;
     use crate::vis;
     let mode = app.settings.player_bar_vis;
+    let active = app.visualiser_fps().is_some();
     let sounding = now.is_some_and(|now| (now.playing || now.loading) && now.local);
     let dark = ui.visuals().dark_mode;
     let colours = vis_colours(app.now_playing_palette(), app.palette.accent, dark);
@@ -140,33 +141,36 @@ fn visualizer(app: &mut App, ui: &egui::Ui, rect: Rect, now: Option<&NowPlaying>
             if !sounding && app.player_bar_analyser.settled() {
                 return false;
             }
-            let samples = if sounding {
-                app.winamp.tap.window(vis::WIDE_SAMPLES, vis::LAG)
+            let levels = if active {
+                let samples = if sounding {
+                    app.winamp.tap.window(vis::WIDE_SAMPLES, vis::LAG)
+                } else {
+                    Vec::new()
+                };
+                app.player_bar_analyser
+                    .step(&samples, std::time::Instant::now())
             } else {
-                Vec::new()
+                app.player_bar_analyser.levels()
             };
-            let levels = app
-                .player_bar_analyser
-                .step(&samples, std::time::Instant::now());
             let peaks = app.player_bar_analyser.peaks();
             spectrum(&painter, rect, &levels, &peaks, &colours, strength);
-            sounding || !app.player_bar_analyser.settled()
+            active && (sounding || !app.player_bar_analyser.settled())
         }
         PlayerBarVis::Waveform => {
-            if !sounding {
+            if !sounding && active {
                 return false;
             }
-            // Winamp's scope with a column every eight points or so.
-            let count = (rect.width() / 8.0).clamp(75.0, 320.0) as usize;
-            let samples = app.winamp.tap.window(count * vis::SCOPE_STEP, vis::LAG);
-            waveform(
-                &painter,
-                rect,
-                &vis::scope_line(&samples, count),
-                &colours,
-                strength,
-            );
-            true
+            let line = if active {
+                // Winamp's scope with a column every eight points or so.
+                let count = (rect.width() / 8.0).clamp(75.0, 320.0) as usize;
+                let samples = app.winamp.tap.window(count * vis::SCOPE_STEP, vis::LAG);
+                app.player_bar_scope = vis::scope_line(&samples, count);
+                &app.player_bar_scope
+            } else {
+                &app.player_bar_scope
+            };
+            waveform(&painter, rect, line, &colours, strength);
+            active && sounding
         }
     }
 }
