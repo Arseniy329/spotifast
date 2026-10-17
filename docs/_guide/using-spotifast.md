@@ -41,6 +41,12 @@ the same personalized read and has no fallback: the shelf appears once
 local playback has read it, and stays hidden for accounts Spotify gives no
 top mixes. If a refresh fails, the mixes already on screen remain.
 
+In Discover Weekly and Spotify's other playlists, a song's menu offers
+**Hide in this playlist**, as Spotify's apps do. A hidden song stays in the
+list, greyed out, and is skipped when the playlist plays; **Show in this
+playlist** brings it back. Spotify keeps the choice, so it carries over to
+its other apps. This needs local playback.
+
 Point at a horizontal shelf, such as Made for you or Recently played on
 Home, and hold `Shift` while turning the mouse wheel. The shelf moves while
 the surrounding page stays put. Release `Shift` to scroll the page normally.

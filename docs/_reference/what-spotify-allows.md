@@ -99,6 +99,12 @@ clients. Spotifast uses its session for:
 - **Your top mixes** through the same personalized Home read, from Spotify's
   top mixes section. Search cannot find these personal mixes, so there is no
   fallback: without local playback the shelf stays hidden.
+- **Hide in this playlist** for songs in Spotify's own playlists, such as
+  Discover Weekly and the other mixes made for you, through the session's
+  collection service: the account's `playcontextbans` set, one item per
+  hidden song and playlist, as Spotify's apps keep it. It is read once per
+  playback session and written only when you hide or show a song. Hidden
+  songs are greyed out and left out of what plays from that playlist.
 - **Radio and autoplay** through Spotify's context resolver: stations seeded
   by a song, playlist, album, or artist. Each resolution is a fresh mix of 50
   songs, so a radio page plays the songs it shows rather than asking again.

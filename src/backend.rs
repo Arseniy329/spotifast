@@ -144,6 +144,16 @@ pub enum ApiRequest {
         generation: u64,
         force: bool,
     },
+    /// The songs hidden in Spotify's playlists, over the playback session.
+    HiddenSongs {
+        generation: u64,
+    },
+    /// Hide a song in one of Spotify's playlists, or show it again.
+    SetHiddenInPlaylist {
+        playlist_uri: String,
+        track_uri: String,
+        hidden: bool,
+    },
     MyPlaylists {
         offset: u32,
         generation: u64,
@@ -341,6 +351,7 @@ impl ApiRequest {
                 | Self::TopArtists { .. }
                 | Self::Recommendations { .. }
                 | Self::MadeForYou { .. }
+                | Self::HiddenSongs { .. }
                 | Self::MyPlaylists { .. }
                 | Self::PlaylistSample { .. }
                 | Self::Contains { .. }
@@ -385,6 +396,16 @@ pub enum ApiResponse {
         personalized: bool,
         result: ApiResult<Vec<Playlist>>,
         top_mixes: ApiResult<Vec<Playlist>>,
+    },
+    HiddenSongs {
+        generation: u64,
+        result: ApiResult<Vec<(String, String)>>,
+    },
+    HiddenInPlaylistSet {
+        playlist_uri: String,
+        track_uri: String,
+        hidden: bool,
+        result: ApiResult<()>,
     },
     MyPlaylists {
         offset: u32,
@@ -4431,6 +4452,9 @@ fn operation_for(api: &ApiGateway, request: &ApiRequest) -> Operation {
         ApiRequest::MadeForYou { .. } | ApiRequest::SearchPlaylists { .. } => {
             Operation::PlaylistSearch
         }
+        ApiRequest::HiddenSongs { .. } | ApiRequest::SetHiddenInPlaylist { .. } => {
+            Operation::UserData
+        }
         ApiRequest::SearchCatalogue { .. } => Operation::CatalogSearch,
         ApiRequest::Search { .. } => Operation::PlaylistSearch,
         ApiRequest::PlaySearch { kind, .. } if kind == "playlist" => Operation::PlaylistSearch,
@@ -4538,6 +4562,20 @@ const UNSUPPORTED_DJ_URI: &str = "spotify:playlist:37i9dQZF1EYkqdzj48dyYq";
 
 /// Search is an approximation, used only when Spotify's personalized Home
 /// section cannot be read.
+/// The playback session of the signed-in account, for what only it can do.
+fn playback_session<'a>(
+    api: &ApiGateway,
+    engine: Option<&'a Engine>,
+) -> ApiResult<&'a librespot_core::session::Session> {
+    engine
+        .filter(|engine| same_account(&engine.session().username(), api.account().as_ref()))
+        .map(Engine::session)
+        .ok_or_else(|| ApiError::Status {
+            status: 503,
+            message: "Hiding songs needs playback on this computer.".into(),
+        })
+}
+
 async fn shared_made_for_you(api: &ApiGateway) -> ApiResult<Vec<Playlist>> {
     let client = api.client_for(Operation::PlaylistSearch).await?;
     let _background_permit = client.background_permit().await;
@@ -4651,6 +4689,46 @@ async fn handle(
             expired,
         );
     }
+    if let ApiRequest::HiddenSongs { generation } = request {
+        let result = match playback_session(api, engine) {
+            Ok(session) => {
+                let _permit = background_session.acquire().await.ok();
+                session_reads::hidden_songs(session)
+                    .await
+                    .map_err(|error| ApiError::Network(format!("{error:#}")))
+            }
+            Err(error) => Err(error),
+        };
+        return (ApiResponse::HiddenSongs { generation, result }, Vec::new());
+    }
+    if let ApiRequest::SetHiddenInPlaylist {
+        playlist_uri,
+        track_uri,
+        hidden,
+    } = request
+    {
+        let result = match playback_session(api, engine) {
+            Ok(session) => session_reads::set_hidden(
+                session,
+                &playlist_uri,
+                &track_uri,
+                hidden,
+                jiff::Timestamp::now().as_second(),
+            )
+            .await
+            .map_err(|error| ApiError::Network(format!("{error:#}"))),
+            Err(error) => Err(error),
+        };
+        return (
+            ApiResponse::HiddenInPlaylistSet {
+                playlist_uri,
+                track_uri,
+                hidden,
+                result,
+            },
+            Vec::new(),
+        );
+    }
     let operation = operation_for(api, &request);
     // A session whose long-lived connection has dropped still answers over
     // its HTTP client, so the engine's presence is the only liveness test;
@@ -4747,7 +4825,11 @@ async fn handle(
             generation,
             result: routed!(recommendations(&seed_tracks, &seed_artists, 20)),
         },
-        ApiRequest::MadeForYou { .. } => unreachable!("handled before Web API routing"),
+        ApiRequest::MadeForYou { .. }
+        | ApiRequest::HiddenSongs { .. }
+        | ApiRequest::SetHiddenInPlaylist { .. } => {
+            unreachable!("handled before Web API routing")
+        }
         ApiRequest::MyPlaylists { offset, generation } => ApiResponse::MyPlaylists {
             offset,
             generation,
