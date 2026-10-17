@@ -157,7 +157,7 @@ fn visualizer(app: &mut App, ui: &egui::Ui, rect: Rect, now: Option<&NowPlaying>
             active && (sounding || !app.player_bar_analyser.settled())
         }
         PlayerBarVis::Waveform => {
-            if !sounding && active {
+            if !sounding {
                 return false;
             }
             let line = if active {
@@ -1027,6 +1027,98 @@ fn extras(app: &mut App, ui: &mut egui::Ui, now: Option<&NowPlaying>) {
     .clicked()
     {
         app.actions.push(Action::ToggleLyricsPanel);
+    }
+}
+
+#[cfg(test)]
+mod player_bar_waveform_tests {
+    use super::*;
+    use crate::app::AppOptions;
+    use crate::backend::Waker;
+    use crate::paths::AppDirs;
+    use crate::settings::{PlayerBarVis, Settings};
+
+    #[test]
+    fn paused_or_stopped_playback_never_paints_a_cached_waveform() {
+        let root =
+            std::env::temp_dir().join(format!("spotifast-waveform-test-{}", std::process::id()));
+        let settings = Settings {
+            player_bar_vis: PlayerBarVis::Waveform,
+            ..Settings::default()
+        };
+        let mut app = App::new(
+            &Waker::default(),
+            AppDirs {
+                config: root.join("config"),
+                state: root.join("state"),
+                cache: root.join("cache"),
+            },
+            settings,
+            AppOptions {
+                media_controls: false,
+                restore_sign_in: false,
+                tray: false,
+            },
+        );
+        app.player_bar_scope = vec![0.8, -0.5, 0.6];
+        let paused = NowPlaying {
+            local: true,
+            device_name: None,
+            device_kind: None,
+            uri: "spotify:track:test".into(),
+            id: None,
+            title: String::new(),
+            artists: Vec::new(),
+            subtitle: String::new(),
+            album_name: String::new(),
+            album_id: None,
+            show_id: None,
+            art_url: None,
+            art_small: None,
+            duration_ms: 1000,
+            position_ms: 0,
+            playing: false,
+            loading: false,
+            shuffle: false,
+            repeat: RepeatMode::Off,
+            volume_percent: 50,
+            can_control: true,
+            can_set_volume: true,
+            is_episode: false,
+            resuming: false,
+        };
+        let mut playing = paused.clone();
+        playing.playing = true;
+        let ctx = egui::Context::default();
+        let rect = Rect::from_min_size(pos2(0.0, 0.0), vec2(400.0, 80.0));
+        for focused in [true, false] {
+            if !focused {
+                app.window_gone();
+            }
+            assert_eq!(app.visualiser_fps().is_some(), focused);
+            app.player_bar_scope = vec![0.8, -0.5, 0.6];
+            let mut output = ctx.run_ui(egui::RawInput::default(), |ui| {
+                visualizer(&mut app, ui, rect, Some(&playing));
+            });
+            output.textures_delta.clear();
+            assert!(
+                !output.shapes.is_empty(),
+                "playing waveform must be visible"
+            );
+            for now in [Some(&paused), None] {
+                let mut moving = true;
+                let mut output = ctx.run_ui(egui::RawInput::default(), |ui| {
+                    moving = visualizer(&mut app, ui, rect, now);
+                });
+                output.textures_delta.clear();
+                assert!(!moving, "silent waveform must not request another frame");
+                assert!(
+                    output.shapes.is_empty(),
+                    "cached waveform was painted while focused={focused}, stopped={}",
+                    now.is_none()
+                );
+            }
+        }
     }
 }
 

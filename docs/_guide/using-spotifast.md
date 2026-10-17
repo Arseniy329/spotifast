@@ -422,8 +422,9 @@ Spectrum, then Waveform, then off again. **Frame rate** in **Settings >
 Appearance** sets how often it and the mini player's analyser draw: 30, 60
 (the default), or the rate of the screen showing the window, up to 120.
 They freeze and stop reading audio while Spotifast's window is out of focus,
-minimised, or hidden. While the system saves energy, they draw at most 30
-frames a second. Other interface animations slow to about four frames a
+minimised, or hidden. The waveform hides when playback pauses or stops, even
+while the window is out of focus. While the system saves energy, they draw at
+most 30 frames a second. Other interface animations slow to about four frames a
 second out of focus. Music continues playing normally. MilkDrop has its own
 frame rate. Disable **Click player bar to change
 visualizer** in **Settings > Appearance** to prevent accidental changes.
