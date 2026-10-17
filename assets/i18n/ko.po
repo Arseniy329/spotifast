@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Spotifast\n"
 "Report-Msgid-Bugs-To: https://github.com/crmne/spotifast/issues/new?"
 "template=translation.yml\n"
-"POT-Creation-Date: 2026-10-17 19:27+0200\n"
+"POT-Creation-Date: 2026-10-17 19:39+0200\n"
 "PO-Revision-Date: 2026-10-15 12:00+0900\n"
 "Last-Translator: Spotifast contributors\n"
 "Language-Team: Korean\n"
@@ -28,13 +28,13 @@ msgstr "{name} 일시정지"
 msgid "Play {name}"
 msgstr "{name} 재생"
 
-#: src/ui/sidebar.rs:302 src/app.rs:2972 src/app.rs:20001
-#: src/ui/collection.rs:1956 src/ui/collection.rs:2171
+#: src/ui/sidebar.rs:302 src/app.rs:2972 src/app.rs:20088
+#: src/ui/collection.rs:2010 src/ui/collection.rs:2225
 msgid "Playlist"
 msgstr "플레이리스트"
 
-#: src/ui/sidebar.rs:312 src/app.rs:2946 src/app.rs:20006
-#: src/ui/collection.rs:2164 src/ui/home.rs:79 src/ui/keys.rs:264
+#: src/ui/sidebar.rs:312 src/app.rs:2946 src/app.rs:20093
+#: src/ui/collection.rs:2218 src/ui/home.rs:79 src/ui/keys.rs:264
 #: src/ui/winamp/playlist.rs:653
 msgid "Liked Songs"
 msgstr "좋아요 표시한 곡"
@@ -111,22 +111,22 @@ msgstr "내 라이브러리 검색"
 msgid "Library"
 msgstr "라이브러리"
 
-#: src/ui/sidebar.rs:1095 src/app.rs:7197 src/model.rs:707 src/ui/search.rs:665
+#: src/ui/sidebar.rs:1095 src/app.rs:7197 src/model.rs:707 src/ui/search.rs:667
 msgid "Playlists"
 msgstr "플레이리스트"
 
 #: src/ui/sidebar.rs:1096 src/model.rs:706 src/model.rs:831
-#: src/ui/library.rs:17 src/ui/search.rs:592
+#: src/ui/library.rs:17 src/ui/search.rs:594
 msgid "Albums"
 msgstr "앨범"
 
 #: src/ui/sidebar.rs:1097 src/model.rs:705 src/ui/library.rs:22
-#: src/ui/search.rs:524
+#: src/ui/search.rs:526
 msgid "Artists"
 msgstr "아티스트"
 
 #: src/ui/sidebar.rs:1098 src/model.rs:708 src/ui/library.rs:27
-#: src/ui/search.rs:716
+#: src/ui/search.rs:718
 msgid "Podcasts"
 msgstr "팟캐스트"
 
@@ -139,9 +139,9 @@ msgstr "내가 만든 항목"
 msgid "Search in Your Library"
 msgstr "내 라이브러리에서 검색"
 
-#: src/ui/sidebar.rs:1243 src/app.rs:3007 src/ui/artist.rs:214
-#: src/ui/artist.rs:357 src/ui/home.rs:614 src/ui/library.rs:101
-#: src/ui/search.rs:159 src/ui/search.rs:488 src/ui/winamp/playlist.rs:746
+#: src/ui/sidebar.rs:1243 src/app.rs:3007 src/ui/artist.rs:218
+#: src/ui/artist.rs:361 src/ui/home.rs:614 src/ui/library.rs:101
+#: src/ui/search.rs:159 src/ui/search.rs:490 src/ui/winamp/playlist.rs:746
 msgid "Artist"
 msgstr "아티스트"
 
@@ -163,8 +163,8 @@ msgstr "일치하는 항목이 없습니다."
 msgid "Sort by recently played"
 msgstr "최근 재생순으로 정렬"
 
-#: src/ui/sidebar.rs:1988 src/ui/player_bar.rs:768 src/ui/widgets.rs:1166
-#: src/ui/artist.rs:388 src/ui/collection.rs:289 src/ui/prerelease.rs:309
+#: src/ui/sidebar.rs:1988 src/ui/player_bar.rs:768 src/ui/widgets.rs:1182
+#: src/ui/artist.rs:392 src/ui/collection.rs:289 src/ui/prerelease.rs:309
 #: src/ui/search.rs:408 src/ui/show.rs:389
 msgid "Play"
 msgstr "재생"
@@ -187,7 +187,7 @@ msgstr[0] "플레이리스트 • {count}곡"
 #. Translators: Keep {count} exactly as written. It becomes a number of songs.
 #. Translators: Keep {count} exactly as written. It becomes the number of selected songs.
 #. Translators: {count} is a number of songs.
-#: src/i18n.rs:201 src/ui/widgets.rs:695 src/ui/collection.rs:2259
+#: src/i18n.rs:201 src/ui/widgets.rs:696 src/ui/collection.rs:2313
 #, rust-format
 msgid "{count} song"
 msgid_plural "{count} songs"
@@ -229,17 +229,17 @@ msgstr "재생 중인 항목 없음"
 msgid "Pick a song, album, or playlist"
 msgstr "곡, 앨범 또는 플레이리스트를 선택하세요"
 
-#: src/ui/player_bar.rs:574 src/ui/widgets.rs:773
+#: src/ui/player_bar.rs:574 src/ui/widgets.rs:775
 msgid "Add to playlist"
 msgstr "플레이리스트에 추가"
 
-#: src/ui/player_bar.rs:581 src/ui/widgets.rs:739 src/ui/widgets.rs:996
-#: src/ui/widgets.rs:1913
+#: src/ui/player_bar.rs:581 src/ui/widgets.rs:740 src/ui/widgets.rs:1011
+#: src/ui/widgets.rs:1934
 msgid "Save to Liked Songs"
 msgstr "좋아요 표시한 곡에 저장"
 
-#: src/ui/player_bar.rs:642 src/ui/widgets.rs:736 src/ui/widgets.rs:993
-#: src/ui/widgets.rs:1911
+#: src/ui/player_bar.rs:642 src/ui/widgets.rs:737 src/ui/widgets.rs:1008
+#: src/ui/widgets.rs:1932
 msgid "Remove from Liked Songs"
 msgstr "좋아요 표시한 곡에서 삭제"
 
@@ -328,38 +328,38 @@ msgstr "재생 출처"
 msgid "Now playing"
 msgstr "지금 재생 중"
 
-#: src/ui/queue.rs:450
+#: src/ui/queue.rs:452
 msgid "Nothing queued"
 msgstr "재생목록이 비어 있음"
 
-#: src/ui/queue.rs:451
+#: src/ui/queue.rs:453
 msgid "Queued songs appear here."
 msgstr "재생목록에 추가한 곡이 여기에 표시됩니다."
 
 #. Translators: Songs added manually, before the current playlist or album continues.
-#: src/ui/queue.rs:474
+#: src/ui/queue.rs:476
 msgid "Playing next"
 msgstr "다음 재생 항목"
 
 #. Translators: Upcoming songs from the current playlist or album, after manually queued songs.
-#: src/ui/queue.rs:581
+#: src/ui/queue.rs:583
 msgid "Next up"
 msgstr "다음 재생"
 
-#: src/ui/queue.rs:622 src/ui/queue.rs:655 src/ui/widgets.rs:2699
-#: src/ui/collection.rs:1186 src/ui/prerelease.rs:242
+#: src/ui/queue.rs:624 src/ui/queue.rs:657 src/ui/widgets.rs:2825
+#: src/ui/collection.rs:1199 src/ui/prerelease.rs:242
 msgid "Retry"
 msgstr "다시 시도"
 
-#: src/ui/queue.rs:637
+#: src/ui/queue.rs:639
 msgid "No recent plays"
 msgstr "최근 재생 기록 없음"
 
-#: src/ui/queue.rs:638
+#: src/ui/queue.rs:640
 msgid "Played songs appear here."
 msgstr "재생한 곡이 여기에 표시됩니다."
 
-#: src/ui/queue.rs:713 src/ui/artist.rs:196
+#: src/ui/queue.rs:717 src/ui/artist.rs:198
 msgid "Load more"
 msgstr "더 불러오기"
 
@@ -376,21 +376,21 @@ msgstr "따라가기"
 msgid "Play a song to see its lyrics."
 msgstr "가사를 보려면 곡을 재생하세요."
 
-#: src/ui/lyrics.rs:143 src/ui/lyrics.rs:160 src/ui/artist.rs:272
-#: src/ui/artist.rs:300 src/ui/collection.rs:655 src/ui/collection.rs:1544
-#: src/ui/collection.rs:1674 src/ui/collection.rs:1700
-#: src/ui/collection.rs:1764 src/ui/collection.rs:1873
-#: src/ui/collection.rs:1899 src/ui/collection.rs:2144 src/ui/home.rs:25
+#: src/ui/lyrics.rs:143 src/ui/lyrics.rs:160 src/ui/artist.rs:276
+#: src/ui/artist.rs:304 src/ui/collection.rs:655 src/ui/collection.rs:1598
+#: src/ui/collection.rs:1728 src/ui/collection.rs:1754
+#: src/ui/collection.rs:1818 src/ui/collection.rs:1927
+#: src/ui/collection.rs:1953 src/ui/collection.rs:2198 src/ui/home.rs:25
 #: src/ui/library.rs:259 src/ui/search.rs:91 src/ui/show.rs:66
 #: src/ui/show.rs:112 src/ui/show.rs:142
 msgid "You're offline"
 msgstr "오프라인 상태입니다"
 
-#: src/ui/lyrics.rs:146 src/ui/lyrics.rs:163 src/ui/artist.rs:275
-#: src/ui/artist.rs:303 src/ui/collection.rs:658 src/ui/collection.rs:1547
-#: src/ui/collection.rs:1677 src/ui/collection.rs:1703
-#: src/ui/collection.rs:1767 src/ui/collection.rs:1876
-#: src/ui/collection.rs:1902 src/ui/collection.rs:2147 src/ui/home.rs:34
+#: src/ui/lyrics.rs:146 src/ui/lyrics.rs:163 src/ui/artist.rs:279
+#: src/ui/artist.rs:307 src/ui/collection.rs:658 src/ui/collection.rs:1601
+#: src/ui/collection.rs:1731 src/ui/collection.rs:1757
+#: src/ui/collection.rs:1821 src/ui/collection.rs:1930
+#: src/ui/collection.rs:1956 src/ui/collection.rs:2201 src/ui/home.rs:34
 #: src/ui/library.rs:262 src/ui/show.rs:69 src/ui/show.rs:115
 #: src/ui/show.rs:145
 msgid "Spotifast will reconnect automatically when your connection returns."
@@ -423,8 +423,8 @@ msgstr "연주곡"
 msgid "No timed lyrics for this track."
 msgstr "이 트랙에는 시간 동기화된 가사가 없습니다."
 
-#: src/ui/lyrics.rs:462 src/ui/widgets.rs:2665 src/app.rs:11984
-#: src/ui/collection.rs:850
+#: src/ui/lyrics.rs:462 src/ui/widgets.rs:2723 src/ui/widgets.rs:2763
+#: src/ui/widgets.rs:2791 src/app.rs:12071 src/ui/collection.rs:851
 msgid "Loading…"
 msgstr "불러오는 중…"
 
@@ -432,220 +432,220 @@ msgstr "불러오는 중…"
 msgid "Leave full screen (Esc)"
 msgstr "전체 화면 종료 (Esc)"
 
-#: src/ui/widgets.rs:711 src/ui/widgets.rs:955
+#: src/ui/widgets.rs:712 src/ui/widgets.rs:970
 msgid "Play next"
 msgstr "다음에 재생"
 
-#: src/ui/widgets.rs:722 src/ui/widgets.rs:966 src/ui/widgets.rs:1188
+#: src/ui/widgets.rs:723 src/ui/widgets.rs:981 src/ui/widgets.rs:1204
 msgid "Add to queue"
 msgstr "재생목록에 추가"
 
-#: src/ui/widgets.rs:755 src/ui/widgets.rs:1057 src/ui/keys.rs:226
+#: src/ui/widgets.rs:756 src/ui/widgets.rs:1072 src/ui/keys.rs:226
 msgid "Remove from this playlist"
 msgstr "이 플레이리스트에서 삭제"
 
-#: src/ui/widgets.rs:858
+#: src/ui/widgets.rs:860
 msgid "Filter playlists"
 msgstr "플레이리스트 필터"
 
-#: src/ui/widgets.rs:869 src/ui/dialogs.rs:365
+#: src/ui/widgets.rs:871 src/ui/dialogs.rs:365
 msgid "New playlist"
 msgstr "새 플레이리스트"
 
-#: src/ui/widgets.rs:898
+#: src/ui/widgets.rs:900
 msgid "No editable playlists"
 msgstr "편집 가능한 플레이리스트 없음"
 
-#: src/ui/widgets.rs:900
+#: src/ui/widgets.rs:902
 msgid "No matching playlists"
 msgstr "일치하는 플레이리스트 없음"
 
-#: src/ui/widgets.rs:981
+#: src/ui/widgets.rs:996
 msgid "Remove from queue"
 msgstr "재생목록에서 삭제"
 
-#: src/ui/widgets.rs:1006
+#: src/ui/widgets.rs:1021
 msgid "Save episode"
 msgstr "에피소드 저장"
 
-#: src/ui/widgets.rs:1031
+#: src/ui/widgets.rs:1046
 msgid "Move up"
 msgstr "위로 이동"
 
-#: src/ui/widgets.rs:1044
+#: src/ui/widgets.rs:1059
 msgid "Move down"
 msgstr "아래로 이동"
 
-#: src/ui/widgets.rs:1072
+#: src/ui/widgets.rs:1088
 msgid "Go to song radio"
 msgstr "곡 라디오로 이동"
 
-#: src/ui/widgets.rs:1089 src/ui/widgets.rs:1096
+#: src/ui/widgets.rs:1105 src/ui/widgets.rs:1112
 msgid "Go to artist"
 msgstr "아티스트로 이동"
 
-#: src/ui/widgets.rs:1114
+#: src/ui/widgets.rs:1130
 msgid "Go to album"
 msgstr "앨범으로 이동"
 
-#: src/ui/widgets.rs:1127
+#: src/ui/widgets.rs:1143
 msgid "Go to podcast"
 msgstr "팟캐스트로 이동"
 
-#: src/ui/widgets.rs:1139 src/ui/widgets.rs:1251 src/ui/prerelease.rs:226
+#: src/ui/widgets.rs:1155 src/ui/widgets.rs:1267 src/ui/prerelease.rs:226
 msgid "Copy link"
 msgstr "링크 복사"
 
-#: src/ui/widgets.rs:1147 src/ui/widgets.rs:1259 src/ui/prerelease.rs:230
+#: src/ui/widgets.rs:1163 src/ui/widgets.rs:1275 src/ui/prerelease.rs:230
 msgid "Open in Spotify"
 msgstr "Spotify에서 열기"
 
-#: src/ui/widgets.rs:1178
+#: src/ui/widgets.rs:1194
 msgid "Shuffle play"
 msgstr "셔플 재생"
 
-#: src/ui/widgets.rs:1198
+#: src/ui/widgets.rs:1214
 msgctxt "artist"
 msgid "Unfollow"
 msgstr "언팔로우"
 
-#: src/ui/widgets.rs:1199 src/ui/artist.rs:404
+#: src/ui/widgets.rs:1215 src/ui/artist.rs:408
 msgctxt "artist"
 msgid "Follow"
 msgstr "팔로우"
 
-#: src/ui/widgets.rs:1200 src/ui/collection.rs:2005 src/ui/collection.rs:2027
+#: src/ui/widgets.rs:1216 src/ui/collection.rs:2059 src/ui/collection.rs:2081
 #: src/ui/show.rs:241
 msgid "Remove from Your Library"
 msgstr "내 라이브러리에서 삭제"
 
-#: src/ui/widgets.rs:1201 src/ui/collection.rs:2004
+#: src/ui/widgets.rs:1217 src/ui/collection.rs:2058
 msgid "Add to Your Library"
 msgstr "내 라이브러리에 추가"
 
-#: src/ui/widgets.rs:1211 src/ui/dialogs.rs:464
+#: src/ui/widgets.rs:1227 src/ui/dialogs.rs:464
 msgid "Edit details"
 msgstr "세부 정보 편집"
 
-#: src/ui/widgets.rs:1225 src/ui/dialogs.rs:100
+#: src/ui/widgets.rs:1241 src/ui/dialogs.rs:100
 msgid "Delete"
 msgstr "삭제"
 
-#: src/ui/widgets.rs:1236
+#: src/ui/widgets.rs:1252
 msgid "Go to playlist radio"
 msgstr "플레이리스트 라디오로 이동"
 
-#: src/ui/widgets.rs:1237
+#: src/ui/widgets.rs:1253
 msgid "Go to album radio"
 msgstr "앨범 라디오로 이동"
 
-#: src/ui/widgets.rs:1238
+#: src/ui/widgets.rs:1254
 msgid "Go to artist radio"
 msgstr "아티스트 라디오로 이동"
 
 #. Translators: {title} is a song or episode name, {subtitle} its artists or podcast.
-#: src/ui/widgets.rs:1438
+#: src/ui/widgets.rs:1459
 #, rust-format
 msgid "Play {title}, {subtitle}"
 msgstr "{title}, {subtitle} 재생"
 
-#: src/ui/widgets.rs:1958 src/ui/artist.rs:418 src/ui/collection.rs:392
+#: src/ui/widgets.rs:1979 src/ui/artist.rs:422 src/ui/collection.rs:392
 #: src/ui/show.rs:259 src/ui/show.rs:467
 msgid "More"
 msgstr "더 보기"
 
 #. Translators: The label beside the pointer while songs are dragged. {name} is the first song's name and {count} how many more songs are dragged with it.
-#: src/ui/widgets.rs:2094
+#: src/ui/widgets.rs:2131
 #, rust-format
 msgid "{name} + {count} more"
 msgid_plural "{name} + {count} more"
 msgstr[0] "{name} 외 {count}곡"
 
 #. Translators: {column} is a column heading of a song list, such as Title.
-#: src/ui/widgets.rs:2211
+#: src/ui/widgets.rs:2248
 #, rust-format
 msgid "Sort by {column}"
 msgstr "{column} 기준으로 정렬"
 
-#: src/ui/widgets.rs:2261
+#: src/ui/widgets.rs:2298
 msgid "Sort by playlist order"
 msgstr "플레이리스트 순서로 정렬"
 
-#: src/ui/widgets.rs:2296
+#: src/ui/widgets.rs:2333
 msgid "Original order, reversed"
 msgstr "원래 순서의 역순"
 
-#: src/ui/widgets.rs:2309
+#: src/ui/widgets.rs:2346
 msgctxt "column heading"
 msgid "TITLE"
 msgstr "제목"
 
-#: src/ui/widgets.rs:2332
+#: src/ui/widgets.rs:2369
 msgctxt "column heading"
 msgid "ALBUM"
 msgstr "앨범"
 
-#: src/ui/widgets.rs:2341
+#: src/ui/widgets.rs:2378
 msgctxt "column heading"
 msgid "ADDED BY"
 msgstr "추가한 사람"
 
-#: src/ui/widgets.rs:2350
+#: src/ui/widgets.rs:2387
 msgctxt "column heading"
 msgid "DATE ADDED"
 msgstr "추가한 날짜"
 
-#: src/ui/widgets.rs:2371 src/ui/widgets.rs:2401
+#: src/ui/widgets.rs:2408 src/ui/widgets.rs:2438
 msgid "Sort by duration"
 msgstr "재생 시간으로 정렬"
 
-#: src/ui/widgets.rs:2676 src/app.rs:12155 src/app.rs:12169
+#: src/ui/widgets.rs:2802 src/app.rs:12242 src/app.rs:12256
 msgid "Network connection error. Check your connection."
 msgstr "네트워크 연결 오류입니다. 연결 상태를 확인하세요."
 
-#: src/ui/widgets.rs:2934
+#: src/ui/widgets.rs:3060
 msgid "Cut"
 msgstr "잘라내기"
 
-#: src/ui/widgets.rs:2939
+#: src/ui/widgets.rs:3065
 msgid "Copy"
 msgstr "복사"
 
-#: src/ui/widgets.rs:2944
+#: src/ui/widgets.rs:3070
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: src/ui/widgets.rs:2961
+#: src/ui/widgets.rs:3087
 msgid "Select all"
 msgstr "모두 선택"
 
-#: src/ui/widgets.rs:3068
+#: src/ui/widgets.rs:3194
 msgid "Clear"
 msgstr "지우기"
 
 #. Translators: {name} is replaced by the author's name, shown as a link.
-#: src/ui/widgets.rs:3113
+#: src/ui/widgets.rs:3239
 #, rust-format
 msgid "Built with love by {name}"
 msgstr "{name}이(가) 정성껏 만들었습니다"
 
-#: src/ui/widgets.rs:3258
+#: src/ui/widgets.rs:3384
 msgid "Host"
 msgstr "호스트"
 
-#: src/ui/widgets.rs:3275
+#: src/ui/widgets.rs:3401
 msgid "Port"
 msgstr "포트"
 
-#: src/ui/widgets.rs:3293
+#: src/ui/widgets.rs:3419
 msgid "Username"
 msgstr "사용자 이름"
 
-#: src/ui/widgets.rs:3304
+#: src/ui/widgets.rs:3430
 msgid "Password"
 msgstr "비밀번호"
 
-#: src/ui/widgets.rs:3322
+#: src/ui/widgets.rs:3448
 msgid ""
 "Proxy login applies to Web requests. Local playback uses this proxy only "
 "without a login."
@@ -653,7 +653,7 @@ msgstr ""
 "프록시 로그인은 웹 요청에 적용됩니다. 로컬 재생은 로그인이 없을 때만 이 프록"
 "시를 사용합니다."
 
-#: src/ui/widgets.rs:3326
+#: src/ui/widgets.rs:3452
 msgid ""
 "Spotify hostnames are resolved by the proxy. Local playback connects "
 "directly."
@@ -769,7 +769,7 @@ msgid "Queue cleared"
 msgstr "재생목록을 지웠습니다"
 
 #. Translators: Keep {date} unchanged. It is a date in YYYY-MM-DD form.
-#: src/app.rs:5504 src/app.rs:19991
+#: src/app.rs:5504 src/app.rs:20078
 #, rust-format
 msgid "Queue {date}"
 msgstr "재생목록 {date}"
@@ -977,35 +977,35 @@ msgstr[0] "{count}곡을 재생목록에 추가했습니다"
 msgid "{name} added to queue"
 msgstr "{name}을(를) 재생목록에 추가했습니다"
 
-#: src/app.rs:9543
+#: src/app.rs:9622
 msgid "The clipboard has no Spotify song links"
 msgstr "클립보드에 Spotify 곡 링크가 없습니다"
 
 #. Translators: {count} is the number of pasted links that failed.
-#: src/app.rs:9624
+#: src/app.rs:9703
 #, rust-format
 msgid "{count} pasted link could not be added"
 msgid_plural "{count} pasted links could not be added"
 msgstr[0] "붙여넣은 링크 {count}개를 추가하지 못했습니다"
 
-#: src/app.rs:10274
+#: src/app.rs:10361
 msgid "Spotify doesn't let apps remove a playlist description, so it was kept"
 msgstr ""
 "Spotify에서 앱이 플레이리스트 설명을 삭제하도록 허용하지 않아 설명을 유지했습"
 "니다"
 
-#: src/app.rs:10322 src/app.rs:10335
+#: src/app.rs:10409 src/app.rs:10422
 msgid "Link copied"
 msgstr "링크를 복사했습니다"
 
 #. Translators: {count} is a number of song links, always more than one.
-#: src/app.rs:10339
+#: src/app.rs:10426
 #, rust-format
 msgid "{count} link copied"
 msgid_plural "{count} links copied"
 msgstr[0] "링크 {count}개를 복사했습니다"
 
-#: src/app.rs:10611
+#: src/app.rs:10698
 msgid ""
 "Spotify doesn't let apps reorder your playlists, so this order is saved on "
 "this computer"
@@ -1013,73 +1013,73 @@ msgstr ""
 "Spotify에서 앱이 플레이리스트 순서를 바꾸도록 허용하지 않아 이 순서는 이 컴퓨"
 "터에 저장됩니다"
 
-#: src/app.rs:10689
+#: src/app.rs:10776
 msgid "Restarting local playback"
 msgstr "로컬 재생을 다시 시작하는 중"
 
-#: src/app.rs:10725
+#: src/app.rs:10812
 msgid "Local playback needs Spotify Premium"
 msgstr "로컬 재생에는 Spotify Premium이 필요합니다"
 
-#: src/app.rs:10775
+#: src/app.rs:10862
 msgid "Play history cleared"
 msgstr "재생 기록을 지웠습니다"
 
 #. Translators: {size} is a size in megabytes, such as 12.5.
-#: src/app.rs:10786
+#: src/app.rs:10873
 #, rust-format
 msgid "Cleared {size} MB of artwork"
 msgstr "아트워크 {size}MB를 지웠습니다"
 
 #. Translators: {error} is an error message.
-#: src/app.rs:10792
+#: src/app.rs:10879
 #, rust-format
 msgid "Couldn't clear artwork: {error}"
 msgstr "아트워크를 지우지 못했습니다: {error}"
 
-#: src/app.rs:11012
+#: src/app.rs:11099
 msgid "Downloading MilkDrop preset packs"
 msgstr "MilkDrop 프리셋 팩을 다운로드하는 중"
 
 #. Translators: {name} is the name of a visualizer preset pack.
-#: src/app.rs:11046
+#: src/app.rs:11133
 #, rust-format
 msgid "Downloading {name} presets"
 msgstr "{name} 프리셋을 다운로드하는 중"
 
-#: src/app.rs:12096
+#: src/app.rs:12183
 msgid "Couldn't start playback"
 msgstr "재생을 시작하지 못했습니다"
 
-#: src/app.rs:12097
+#: src/app.rs:12184
 msgid "Couldn't pause"
 msgstr "일시정지하지 못했습니다"
 
-#: src/app.rs:12098
+#: src/app.rs:12185
 msgid "Couldn't skip"
 msgstr "건너뛰지 못했습니다"
 
-#: src/app.rs:12099
+#: src/app.rs:12186
 msgid "Couldn't go back"
 msgstr "이전으로 돌아가지 못했습니다"
 
-#: src/app.rs:12100
+#: src/app.rs:12187
 msgid "Couldn't seek"
 msgstr "재생 위치를 이동하지 못했습니다"
 
-#: src/app.rs:12101
+#: src/app.rs:12188
 msgid "Couldn't change the volume"
 msgstr "볼륨을 변경하지 못했습니다"
 
-#: src/app.rs:12102
+#: src/app.rs:12189
 msgid "Couldn't change shuffle"
 msgstr "셔플을 변경하지 못했습니다"
 
-#: src/app.rs:12103
+#: src/app.rs:12190
 msgid "Couldn't change repeat"
 msgstr "반복을 변경하지 못했습니다"
 
-#: src/app.rs:12146
+#: src/app.rs:12233
 msgid ""
 "No audio output device was found. Connect or enable one, then press play "
 "again."
@@ -1087,18 +1087,18 @@ msgstr ""
 "오디오 출력 기기를 찾을 수 없습니다. 기기를 연결하거나 활성화한 후 다시 재생"
 "을 누르세요."
 
-#: src/app.rs:12160
+#: src/app.rs:12247
 msgid ""
 "Spotify doesn't make this playlist's songs available to third-party apps."
 msgstr "Spotify에서 이 플레이리스트의 곡을 타사 앱에 제공하지 않습니다."
 
-#: src/app.rs:12281
+#: src/app.rs:12368
 msgid "Spotify sign-in expired. Sign in again, then retry the cover upload."
 msgstr ""
 "Spotify 로그인이 만료되었습니다. 다시 로그인한 후 커버 업로드를 다시 시도하세"
 "요."
 
-#: src/app.rs:12286
+#: src/app.rs:12373
 msgid ""
 "Spotify refused this cover. Check that you own the playlist, then sign in "
 "again to grant image upload permission. If using a personal app, reconnect "
@@ -1108,19 +1108,19 @@ msgstr ""
 "그인하여 이미지 업로드 권한을 허용하세요. 개인 앱을 사용 중이라면 설정에서도 "
 "다시 연결하세요."
 
-#: src/app.rs:12290
+#: src/app.rs:12377
 msgid "Spotify rejected the image size. Choose a smaller image."
 msgstr "Spotify에서 이미지 크기를 거부했습니다. 더 작은 이미지를 선택하세요."
 
 #. Translators: {error} is an error message.
-#: src/app.rs:12293
+#: src/app.rs:12380
 #, rust-format
 msgid "Couldn't upload the cover: {error}. Try again."
 msgstr "커버를 업로드하지 못했습니다: {error}. 다시 시도하세요."
 
 #. Translators: Keep {track} unchanged. It is the name of the song,
 #. playlist, album, or artist the radio is based on, not translated.
-#: src/app.rs:20011 src/app/radio.rs:38
+#: src/app.rs:20098 src/app/radio.rs:38
 #, rust-format
 msgid "{track} Radio"
 msgstr "{track} 라디오"
@@ -2045,43 +2045,43 @@ msgstr ""
 msgid "Popular"
 msgstr "인기"
 
-#: src/ui/artist.rs:84
+#: src/ui/artist.rs:86
 msgid "Show less"
 msgstr "간단히 보기"
 
-#: src/ui/artist.rs:86
+#: src/ui/artist.rs:88
 msgid "See more"
 msgstr "더 보기"
 
-#: src/ui/artist.rs:97
+#: src/ui/artist.rs:99
 msgid "No popular songs to show."
 msgstr "표시할 인기 곡이 없습니다."
 
-#: src/ui/artist.rs:110
+#: src/ui/artist.rs:112
 msgid "Discography"
 msgstr "디스코그래피"
 
-#: src/ui/artist.rs:189
+#: src/ui/artist.rs:191
 msgid "Nothing in this category."
 msgstr "이 카테고리에 항목이 없습니다."
 
-#: src/ui/artist.rs:215
+#: src/ui/artist.rs:219
 msgid "Fans also like"
 msgstr "팬들이 좋아하는 다른 아티스트"
 
 #. Translators: {count} is the number of people who follow an artist.
-#: src/ui/artist.rs:325
+#: src/ui/artist.rs:329
 #, rust-format
 msgid "{count} follower"
 msgid_plural "{count} followers"
 msgstr[0] "팔로워 {count}명"
 
-#: src/ui/artist.rs:379 src/ui/collection.rs:275 src/ui/show.rs:218
+#: src/ui/artist.rs:383 src/ui/collection.rs:275 src/ui/show.rs:218
 #: src/ui/show.rs:376
 msgid "Starting…"
 msgstr "시작하는 중…"
 
-#: src/ui/artist.rs:402
+#: src/ui/artist.rs:406
 msgctxt "artist"
 msgid "Following"
 msgstr "팔로잉"
@@ -2114,44 +2114,44 @@ msgstr "새로고침하는 중…"
 msgid "Refresh"
 msgstr "새로고침"
 
-#: src/ui/collection.rs:842 src/ui/collection.rs:869
+#: src/ui/collection.rs:843 src/ui/collection.rs:870
 msgid "Unavailable"
 msgstr "사용할 수 없음"
 
-#: src/ui/collection.rs:848
+#: src/ui/collection.rs:849
 msgid "You're offline. Reconnect to load more songs."
 msgstr "오프라인 상태입니다. 곡을 더 불러오려면 다시 연결하세요."
 
-#: src/ui/collection.rs:997
+#: src/ui/collection.rs:1004
 msgid "Nothing here yet"
 msgstr "아직 아무것도 없습니다"
 
-#: src/ui/collection.rs:998
+#: src/ui/collection.rs:1005
 msgid "Added songs appear here."
 msgstr "추가한 곡이 여기에 표시됩니다."
 
-#: src/ui/collection.rs:1450 src/ui/home.rs:725
+#: src/ui/collection.rs:1504 src/ui/home.rs:727
 msgid "Your top songs"
 msgstr "내 인기 곡"
 
-#: src/ui/collection.rs:1459
+#: src/ui/collection.rs:1513
 msgid "Your most-played tracks from the last four weeks."
 msgstr "지난 4주 동안 가장 많이 재생한 트랙입니다."
 
-#: src/ui/collection.rs:1952
+#: src/ui/collection.rs:2006
 msgid "Collaborative Playlist"
 msgstr "공동 작업 플레이리스트"
 
-#: src/ui/collection.rs:1954
+#: src/ui/collection.rs:2008
 msgid "Public Playlist"
 msgstr "공개 플레이리스트"
 
-#: src/ui/collection.rs:2026
+#: src/ui/collection.rs:2080
 msgid "Save to Your Library"
 msgstr "내 라이브러리에 저장"
 
 #. Translators: {count} is the number of people who saved a playlist.
-#: src/ui/collection.rs:2271
+#: src/ui/collection.rs:2325
 #, rust-format
 msgid "{count} save"
 msgid_plural "{count} saves"
@@ -2159,26 +2159,26 @@ msgstr[0] "저장 {count}회"
 
 #. Translators: {count} is a number of songs and {duration} their total
 #. length, such as "2 hr 13 min".
-#: src/ui/collection.rs:2284
+#: src/ui/collection.rs:2338
 #, rust-format
 msgid "{count} song, {duration}"
 msgid_plural "{count} songs, {duration}"
 msgstr[0] "{count}곡, {duration}"
 
 #. Translators: {name} is the name of someone who added songs to the playlist.
-#: src/ui/collection.rs:2354
+#: src/ui/collection.rs:2408
 #, rust-format
 msgid "with {name}"
 msgstr "{name} 참여"
 
 #. Translators: {first} and {second} are names of people who added songs.
-#: src/ui/collection.rs:2358
+#: src/ui/collection.rs:2412
 #, rust-format
 msgid "with {first} and {second}"
 msgstr "{first}, {second} 참여"
 
 #. Translators: {count} is how many other people added songs to the playlist.
-#: src/ui/collection.rs:2365
+#: src/ui/collection.rs:2419
 #, rust-format
 msgid "and {count} other"
 msgid_plural "and {count} others"
@@ -2444,7 +2444,7 @@ msgid "Your top mixes"
 msgstr "내 인기 믹스"
 
 #. Translators: {owner} is the name of the playlist's owner.
-#: src/ui/home.rs:287 src/ui/search.rs:620
+#: src/ui/home.rs:287 src/ui/search.rs:622
 #, rust-format
 msgid "By {owner}"
 msgstr "{owner}"
@@ -2469,11 +2469,11 @@ msgstr "새 에피소드 • {show}"
 msgid "Your top artists"
 msgstr "내 인기 아티스트"
 
-#: src/ui/home.rs:726
+#: src/ui/home.rs:728
 msgid "Show more top songs"
 msgstr "인기 곡 더 보기"
 
-#: src/ui/home.rs:740
+#: src/ui/home.rs:742
 msgid "Recommended for you"
 msgstr "추천"
 
